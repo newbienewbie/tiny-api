@@ -44,9 +44,10 @@ export function API(modelName){
          * update model
          */
         update:function(id,record){
+            record.id=id;
             return client.post(
                     `/${modelName}/update`,
-                    JSON.stringify({id,name,description}),
+                    JSON.stringify(record),
                     {
                         headers:{ 'Content-Type':'application/json', }
                     },
