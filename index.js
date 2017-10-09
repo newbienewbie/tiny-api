@@ -9,6 +9,13 @@ export function API(modelName){
     return {
 
         /**
+         * 获取客户端
+         */
+        getTransport:function(){
+            return client;
+        },
+
+        /**
          * create model
          */
         create:function(record){
