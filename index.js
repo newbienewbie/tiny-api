@@ -32,12 +32,13 @@ export function API(modelName){
         },
 
         /**
-         * remove model
+         * remove model ,
+         * 为了可以删除关联，不再仅仅只传递一个id了
          */
-        remove:function(id){
+        remove:function(record){
             return client.post(
                     `/${modelName}/remove`,
-                    JSON.stringify({id}),
+                    JSON.stringify(record),
                     {
                         headers:{ 'Content-Type':'application/json', }
                     },

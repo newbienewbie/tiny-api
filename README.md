@@ -12,7 +12,7 @@ const api=API('role');
 /*
 the shape of api is {
     create:(record)=>{},
-    remove:(id)=>{},
+    remove:(record)=>{},
     update:(id,record)=>{},
     list:(page,size,condition)=>{},
 }
