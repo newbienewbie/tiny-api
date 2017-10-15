@@ -11,10 +11,10 @@ const api=API('role');
 
 /*
 the shape of api is {
-    create:(record)=>{},
-    remove:(record)=>{},
-    update:(id,record)=>{},
-    list:(page,size,condition)=>{},
+    create:(record,context)=>{},
+    remove:(record,context)=>{},
+    update:(id,record,context)=>{},
+    list:(page,size,condition,context)=>{},
 }
 */
 ```

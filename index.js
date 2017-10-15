@@ -18,10 +18,10 @@ export function API(modelName){
         /**
          * create model
          */
-        create:function(record){
+        create:function(record,context={}){
             return client.post(
                     `/${modelName}/create`,
-                    JSON.stringify(record),
+                    JSON.stringify(record,context),
                     {
                         headers:{ 'Content-Type':'application/json', }
                     },
@@ -32,13 +32,12 @@ export function API(modelName){
         },
 
         /**
-         * remove model ,
-         * 为了可以删除关联，不再仅仅只传递一个id了
+         * remove model 
          */
-        remove:function(record){
+        remove:function(id,context={}){
             return client.post(
                     `/${modelName}/remove`,
-                    JSON.stringify(record),
+                    JSON.stringify({id,context}),
                     {
                         headers:{ 'Content-Type':'application/json', }
                     },
@@ -51,11 +50,11 @@ export function API(modelName){
         /**
          * update model
          */
-        update:function(id,record){
+        update:function(id,record,context={}){
             record.id=id;
             return client.post(
                     `/${modelName}/update`,
-                    JSON.stringify(record),
+                    JSON.stringify({record,context}),
                     {
                         headers:{ 'Content-Type':'application/json', }
                     },
@@ -69,10 +68,10 @@ export function API(modelName){
         /**
          * list all models by page ,size ,condition
          */
-        list:function(page=1,size=10,condition={}){
+        list:function(page=1,size=10,condition={},context={}){
             return client.post(
                     `/${modelName}/list`,
-                    JSON.stringify({page,size,condition}),
+                    JSON.stringify({page,size,condition,context}),
                     {
                         headers:{ 'Content-Type':'application/json', },
                     }
