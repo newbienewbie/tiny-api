@@ -21,7 +21,7 @@ export function API(modelName){
         create:function(record,context={}){
             return client.post(
                     `/${modelName}/create`,
-                    JSON.stringify(record,context),
+                    JSON.stringify({record,context}),
                     {
                         headers:{ 'Content-Type':'application/json', }
                     },
